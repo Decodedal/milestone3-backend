@@ -1,7 +1,7 @@
 const express = require('express');
-const methodOverride = require("method-override");
 const { Sequelize } = require('sequelize');
 const cors = require('cors')
+const bodyParser = require('body-parser')
 
 //CONFIGURATION
 require('dotenv').config()
@@ -11,16 +11,17 @@ const app = express();
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
+app.use(bodyParser.json())
 
 //Postgres Connection string
-const sequelize = new Sequelize(process.env.PG_URI)
+// const sequelize = new Sequelize(process.env.PG_URI)
 
-try{
-   sequelize.authenticate()
-   console.log("DB connection established")
-}catch(err){
-   console.log(`no dice ${err}`)
-}
+// try{
+//    sequelize.authenticate()
+//    console.log("DB connection established")
+// }catch(err){
+//    console.log(`no dice ${err}`)
+// }
 
 //ROOT
  app.get('/', (req,res)=>{
