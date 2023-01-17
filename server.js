@@ -13,15 +13,8 @@ app.use(express.urlencoded({extended:true}))
 app.use(cors())
 app.use(bodyParser.json())
 
-//Postgres Connection string
-// const sequelize = new Sequelize(process.env.PG_URI)
-
-// try{
-//    sequelize.authenticate()
-//    console.log("DB connection established")
-// }catch(err){
-//    console.log(`no dice ${err}`)
-// }
+//CONTROLLERS AND ROUTES
+app.use('/users',require("./controllers/users"))
 
 //ROOT
  app.get('/', (req,res)=>{
