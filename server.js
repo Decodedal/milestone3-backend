@@ -15,6 +15,7 @@ app.use(bodyParser.json())
 
 //CONTROLLERS AND ROUTES
 app.use('/users',require("./controllers/users"))
+app.use('/authentication', require('./controllers/authentication'))
 
 //ROOT
  app.get('/', (req,res)=>{
