@@ -6,7 +6,7 @@ const { items, Users, user_item } = db
 
 //checks if item in user id matches user id and item id and updated the state of
 //liked and or cart, otherwise it creates new entry into that user_id tabel
-router.post('/', async (req,res) =>{
+router.post('/:likeOrCart', async (req,res) =>{
     try{
         const founditem = await user_item.findOne({
             where:{ 
@@ -16,13 +16,21 @@ router.post('/', async (req,res) =>{
         })
 
         if(founditem){
-            founditem.update({
-                liked:req.body.liked,
-                cart:req.body.cart
-            })
-            res.status(200).json({
-                message:"that worked"
-            })
+            if(req.params.likeOrCart === "like"){
+                founditem.update({
+                    liked:req.body.liked
+                })
+                res.status(200).json({
+                    message:"that worked"
+                })
+            }else if(req.params.likeOrCart === "cart"){
+                founditem.update({
+                    cart:req.body.cart
+                })
+                res.status(200).json({
+                    message:"that worked"
+                })
+            }
         }else{
 
         const newUserItem = await user_item.create({
@@ -40,11 +48,11 @@ router.post('/', async (req,res) =>{
     }
 })
 
-router.get('/', async (req,res)=>{
+router.get('/:id', async (req,res)=>{
    try{ 
     const foundItems = await user_item.findAll({
         where:{
-            user_id: req.body.user_id 
+            user_id: req.params.id 
         }
     })
    res.json(foundItems)
