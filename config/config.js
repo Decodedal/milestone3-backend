@@ -21,6 +21,7 @@ module.exports = {
     "password": process.env.ELP_PASSWORD,
     "database": process.env.ELP_DATABASE,
     "host": process.env.ELP_HOST,
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "port":"5432"
   }
 }
