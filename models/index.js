@@ -17,7 +17,7 @@ const db = {};
 // }
 
 
-const sequelize = new Sequelize(process.env.ELEPHANT_URI)
+const sequelize = new Sequelize(process.env.ELEPHANT_URI,null,null,{})
 
 fs
   .readdirSync(__dirname)
