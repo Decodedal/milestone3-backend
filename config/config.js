@@ -17,9 +17,9 @@ module.exports = {
     "dialect": "mysql"
   },
   "production": {
-    "username": process.env.DB_USERNAME,
-    "password": process.env.DB_PASSWORD,
-    "database": process.env.DB_DATABASE,
+    "username": process.env.ELP_USERNAME,
+    "password": process.env.ELP_PASSWORD,
+    "database": process.env.ELP_DATABASE,
     "host": process.env.ELP_HOST,
     "dialect": "postgres"
   }

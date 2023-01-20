@@ -25,7 +25,8 @@ router.post('/:likeOrCart', async (req,res) =>{
                 })
             }else if(req.params.likeOrCart === "cart"){
                 founditem.update({
-                    cart:req.body.cart
+                    cart:req.body.cart,
+                    quantity:req.body.quantity
                 })
                 res.status(200).json({
                     message:"that worked"
@@ -37,7 +38,8 @@ router.post('/:likeOrCart', async (req,res) =>{
             user_id: req.body.user_id,
             item_id: req.body.item_id,
             liked:req.body.liked,
-            cart:req.body.cart
+            cart:req.body.cart,
+            quantity:req.body.quantity
         })
          res.status(200).json({
             message:"that worked"
@@ -61,9 +63,10 @@ router.get('/:id', async (req,res)=>{
     }
 })
 
+//this route is called when user logs out to prevent old items from reapearing in the cart if they have since been removed
 router.post("/deleter/:id", (req, res)=>{
 try{ 
-    user_item.update({cart:false},{
+    user_item.update({cart:false, quantity:0},{
         where:{
             user_id: req.params.id
         }

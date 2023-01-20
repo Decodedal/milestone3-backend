@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     user_id: DataTypes.INTEGER,
     item_id: DataTypes.INTEGER,
     liked: DataTypes.BOOLEAN,
-    cart: DataTypes.BOOLEAN
+    cart: DataTypes.BOOLEAN,
+    quantity:DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'user_item',
