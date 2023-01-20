@@ -61,6 +61,19 @@ router.get('/:id', async (req,res)=>{
     }
 })
 
-//if the item 
+router.post("/deleter/:id", (req, res)=>{
+try{ 
+    user_item.update({cart:false},{
+        where:{
+            user_id: req.params.id
+        }
+    })
+         res.status(200).json({
+             message:"that worked"
+         })
+}catch(err){
+    res.status(500).json(err)
+}
+})
 
 module.exports = router;
