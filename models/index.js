@@ -12,9 +12,23 @@ const db = {};
 let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
+  try{
+    sequelize.authenticate()
+    console.log("connected")
+  }catch(err){
+    console.log(err)
+  }
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
+
+// const sequelize = new Sequelize("postgres://style_central_user:Gdxrux8dsLIOR9RJGDGc9zm1gBKMmfYL@dpg-cf4ro51a6gdl6lrrs290-a.ohio-postgres.render.com/style_central")
+// try{
+//   sequelize.authenticate()
+//   console.log("connected")
+// }catch(err){
+//   console.log(err)
+// }
 
 fs
   .readdirSync(__dirname)
