@@ -17,10 +17,10 @@ module.exports = {
     "dialect": "mysql"
   },
   "production": {
-    "username": "fbtcfuae",
-    "password": "PWONEteUnX1Y7bx_qyN1Bek4--19ZFxo",
-    "database": "fbtcfuae",
-    "host": "ruby.db.elephantsql.com",
+    "username": "",
+    "password": "",
+    "database": "",
+    "host": "",
     "dialect": "postgres",
     "port":"5432"
   }
