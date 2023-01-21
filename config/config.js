@@ -17,10 +17,10 @@ module.exports = {
     "dialect": "mysql"
   },
   "production": {
-    "username": process.env.ELP_USERNAME,
-    "password": process.env.ELP_PASSWORD,
-    "database": process.env.ELP_DATABASE,
-    "host": process.env.ELP_HOST,
+    "username": "fbtcfuae",
+    "password": "PWONEteUnX1Y7bx_qyN1Bek4--19ZFxo",
+    "database": "fbtcfuae",
+    "host": "ruby.db.elephantsql.com",
     "dialect": "postgres",
     "port":"5432"
   }
